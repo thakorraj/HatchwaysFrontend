@@ -1,0 +1,32 @@
+mat-panel-title,
+mat-panel-description,
+.Text {
+  display: block;
+  font-size: 15px;
+}
+
+.link{
+    display: block;
+    font-size: 25px;
+}
+
+.grades{
+    
+    margin-left: 330px;
+}
+
+.input{
+    margin-left: 660px; 
+}
+
+img {
+    border-radius: 50%;
+    height:130px;
+    width:130px;
+    border: 1px solid black;
+  }
+
+  .Fpipe{
+      height:30px;
+      width:2000px;
+  }

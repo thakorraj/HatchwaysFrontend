@@ -1,0 +1,28 @@
+<input type="text" class="Fpipe" placeholder="Search Here" [(ngModel)]="term">
+<mat-accordion *ngFor="let student of students | filter:term ">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header [collapsedHeight]="'160px'" [expandedHeight]="'160px'">
+            <mat-panel-title>
+                <img src="{{student.pic}}" alt="{{student.firstName}}" class="img" />
+            </mat-panel-title>
+            <mat-panel-description>
+               <b> <span class="link"> {{student.firstName}} {{student.lastName}}</span></b>
+                <br>
+                <span class="Text">Email:    {{student.email}}</span>
+                <span class="Text">Company:  {{student.company}}</span>
+                <span class="Text">Skill:    {{student.skill}}</span>
+                <span class="Text">Average:{{getSum(student.grades)  | percent:'2.2-2'}}</span>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="grades" *ngFor="let grades of student.grades;  let j = index ;filter:term" align='left' >
+            <span class="grades" >Test {{j+1}} :      {{(grades/100) | percent}}</span>
+        </p>
+        <p class="grades" *ngFor="let tag of student.tag" align='left'><span class="grades"><button mat-raised-button>{{tag}}</button></span></p>
+        <form class="input">
+            <mat-form-field class="example-full-width">
+              <mat-label>Enter Tag</mat-label>
+              <input matInput placeholder="Tag " [(ngModel)]="tag" name="tag">
+            </mat-form-field></form>
+        <p class="grades"><span class="grades"><button mat-raised-button color="primary" (click)="myFunc(student.tag)">Add</button></span></p>
+    </mat-expansion-panel>
+</mat-accordion>
